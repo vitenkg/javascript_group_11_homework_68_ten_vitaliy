@@ -64,7 +64,7 @@ export const editFetch = (id) => {
             dispatch(fetchTodoFailure())
         }
     }
-}
+};
 
 export const removeFetch = (id) => {
     return async (dispatch, getState) => {
@@ -76,4 +76,4 @@ export const removeFetch = (id) => {
             dispatch(fetchTodoFailure())
         }
     }
-}
+};

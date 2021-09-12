@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import './TodoList.css';
 import {useDispatch, useSelector} from "react-redux";
 import {addFetch, change, edit, editFetch, fetchTodo, removeFetch} from "../../store/actions";
+import withErrorHandler from "../../hoc/withErrorHandler";
+import axiosApi from "../../AxiosApi";
 
 
 const TodoList = () => {
@@ -32,8 +34,6 @@ const TodoList = () => {
     const onClickEraseHandler = id => {
         dispatch(removeFetch(id));
     }
-
-
 
     return (
         <>
@@ -88,4 +88,4 @@ const TodoList = () => {
     );
 };
 
-export default TodoList;
+export default withErrorHandler(TodoList, axiosApi);
