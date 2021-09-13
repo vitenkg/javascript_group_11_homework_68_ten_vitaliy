@@ -6,7 +6,7 @@ import {
     FETCH_COUNTER_SUCCESS,
     INCREASE,
     SUBTRACT
-} from "../storeCounter/actions";
+} from "../store/actions";
 
 const initialState = {
     todoList: [],
