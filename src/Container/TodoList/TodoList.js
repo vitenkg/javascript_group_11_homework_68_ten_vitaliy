@@ -10,8 +10,6 @@ const TodoList = () => {
     const dispatch = useDispatch();
     const todoList = useSelector(state => state.todoList);
     const todo = useSelector(state => state.todo)
-    const loading = useSelector(state => state.loading)
-    const error = useSelector(state => state.error)
 
     useEffect(() => {
         dispatch(fetchTodo())
@@ -24,8 +22,6 @@ const TodoList = () => {
 
     const onSubmitEditHandler = (e, id) => {
         e.preventDefault();
-        console.log('Submit String');
-        console.log(e.target.value);
         dispatch(editFetch(id));
     }
 

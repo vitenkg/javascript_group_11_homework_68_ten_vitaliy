@@ -40,12 +40,10 @@ export const fetchTodo = () => {
     return async (dispatch, getState) => {
         dispatch(fetchTodoRequest());
         try {
-            console.log('Loaded');
             const response = await axiosApi.get('/todolist.json');
             const data = Object.keys(response.data).map(type => {
                 return {id: type, text: response.data[type].text}
             });
-            console.log('data ',data);
             dispatch(fetchTodoSuccess(data));
         } catch (e) {
             dispatch(fetchTodoFailure())
@@ -58,7 +56,6 @@ export const addFetch = () => {
     return async (dispatch, getState) => {
         dispatch(fetchTodoRequest());
         try {
-            console.log('state: ', getState().todo);
             await axiosApi.post('/todolist.json', {text: getState().todo});
             dispatch(change(''));
             dispatch(fetchTodo())
@@ -73,7 +70,6 @@ export const editFetch = (id) => {
         const value = getState().todoList.map(todo => {
             if (id === todo.id) return todo.text
         });
-        console.log(value);
         dispatch(fetchTodoRequest());
         try {
             await axiosApi.patch(`/todolist/${id}.json`, {text: value});
