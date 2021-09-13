@@ -14,3 +14,45 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.NaviHeader {
+    margin-left: 10px;
+    color: #4f5050;
+    font-size: 25px;
+}
+
+.UlNav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.liNav {
+    display: inline-block;
+    border-left: 1px solid lightgrey;
+    margin-right: 10px;
+    padding-left: 10px;
+    line-height: 18px;
+}
+
+.Link {
+    color: black;
+    text-decoration: none;
+    background: lightgrey;
+    margin: 10px;
+    padding: 10px 10px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.active {
+    background: #5c636a;
+    color: white;
+}
