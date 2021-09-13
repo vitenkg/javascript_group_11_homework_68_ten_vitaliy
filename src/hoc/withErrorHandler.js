@@ -33,6 +33,9 @@ const withErrorHandler = (WrappedComponent, axios) => {
             }
         }, [icIdRes, icIdReq]);
 
+        if (error) {
+
+        }
 
             return (
                 <>

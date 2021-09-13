@@ -21,7 +21,7 @@ export const FETCH_COUNTER_FAILURE = 'FETCH_COUNTER_FAILURE';
 
 export const increase = () => ({type: INCREASE});
 export const decrease = () => ({type: DECREASE});
-export const addCounter = value => ({type: ADD, payload: value});
+export const addCounter = value => ({type: ADDCOUNTER, payload: value});
 export const subtract = value => ({type: SUBTRACT, payload: value});
 
 export const fetchCounterRequest = () => ({type: FETCH_COUNTER_REQUEST});
@@ -67,8 +67,12 @@ export const addFetch = () => {
 
 export const editFetch = (id) => {
     return async (dispatch, getState) => {
-        const value = getState().todoList.map(todo => {
-            if (id === todo.id) return todo.text
+        let value = '';
+        getState().todoList.map(todo => {
+            if (id === todo.id) {
+                value = todo.text
+            }
+            return todo;
         });
         dispatch(fetchTodoRequest());
         try {

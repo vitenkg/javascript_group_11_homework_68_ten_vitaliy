@@ -1,11 +1,15 @@
-import {addCounter, ADDCOUNTER, CHANGE, EDIT, FETCH_TODO_REQUEST, FETCH_TODO_SUCCESS} from "./actions";
 import {
     DECREASE,
     FETCH_COUNTER_FAILURE,
     FETCH_COUNTER_REQUEST,
     FETCH_COUNTER_SUCCESS,
     INCREASE,
-    SUBTRACT
+    SUBTRACT,
+    ADDCOUNTER,
+    CHANGE,
+    EDIT,
+    FETCH_TODO_REQUEST,
+    FETCH_TODO_SUCCESS
 } from "../store/actions";
 
 const initialState = {
@@ -44,7 +48,7 @@ const reducer = (state = initialState, action) => {
         case DECREASE:
             return {...state, counter: state.counter - 1};
         case ADDCOUNTER:
-            return addCounter(state, action);
+            return {...state, counter: state.counter + action.payload};
         case SUBTRACT:
             return {...state, counter: state.counter - action.payload};
         case FETCH_COUNTER_REQUEST:
